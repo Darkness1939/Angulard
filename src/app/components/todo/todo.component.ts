@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService, Todo} from '../../services/todo.service';
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { StatusPipe } from '../../pipes/status.pipe';
 
 @Component({
   selector: 'app-todo',
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, CommonModule, StatusPipe],
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.scss'
 })

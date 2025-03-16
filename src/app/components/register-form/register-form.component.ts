@@ -1,10 +1,11 @@
+import { CommonModule, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-form',
   standalone: true, 
-  imports: [],
+  imports: [NgIf, ReactiveFormsModule, CommonModule],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.scss'
 })

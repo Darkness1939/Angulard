@@ -2,8 +2,7 @@
 <div *ngIf="error">{{error}}</div>
 
 <ul *ngIf="!loading && !error">
-    <li *ngFor="let todo of todos">
-        <input type="checkbox" [checked]="todo.completed" />
-         {{ todo.title }}
+    <li *ngFor="let task of tasks">
+         {{ task.title }} - {{ task.completed | status }}
     </li>
 </ul>
