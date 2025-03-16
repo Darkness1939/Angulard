@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,5 +8,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './todo-list.component.scss'
 })
 export class TodoListComponent {
-  //  @Input() title = 'Мои задачи';
+ @Input() title = 'Мои задачи';
 }
