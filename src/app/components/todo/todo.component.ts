@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService, Todo} from '../../services/todo.service';
 import { NgFor, NgIf } from '@angular/common';
+
 @Component({
   selector: 'app-todo',
+  standalone: true,
   imports: [NgFor, NgIf],
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.scss'

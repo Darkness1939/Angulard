@@ -8,5 +8,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './todo-list.component.scss'
 })
 export class TodoListComponent {
-   @input() title = 'Мои задачи';
+  //  @Input() title = 'Мои задачи';
 }
