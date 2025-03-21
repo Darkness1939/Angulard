@@ -1,11 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Todo, TodoService } from '../../../services/todo.service';
+import { NgIf } from '@angular/common';
+import { StatusPipe } from '../../../pipes/status.pipe';
 
 @Component({
   selector: 'app-todo-detail',
-  imports: [],
+  standalone: true,
+  imports: [StatusPipe, NgIf],
   templateUrl: './todo-detail.component.html',
-  styleUrl: './todo-detail.component.scss'
+  styleUrls: ['./todo-detail.component.scss']
 })
-export class TodoDetailComponent {
 
+export class TodoDetailComponent implements OnInit {
+  todo: Todo | null = null;
+  error: string | null = null;
+
+  constructor(private route: ActivatedRoute,
+    private todoService: TodoService) {}
+
+    ngOnInit(): void {
+      const todoId = Number(this.route.snapshot.paramMap.get('id')); // Получаем ID из URL
+  
+      this.todoService.getTodoById(todoId).subscribe({
+        next: (data) => {
+          this.todo = data;
+        },
+        error: (err) => {
+          this.error = 'Ошибка загрузки данных';
+        }
+      });
+    }
 }
